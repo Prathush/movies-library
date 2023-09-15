@@ -1,0 +1,13 @@
+<p-carousel [value]="movies" [numVisible]="5" [numScroll]="3" [circular]="false"
+    [responsiveOptions]="responsiveOptions">
+    <ng-template let-movie pTemplate="item">
+        <div class="movie-item">
+            <div class="movie-item-content">
+                <div class="p-mb-3">
+                    <img [src]="movie.Poster" [alt]="movie.Title" class="movie-image" (click)="onImageClick(movie)"
+                        loading="lazy" />
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>

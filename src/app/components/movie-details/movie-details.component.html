@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container" *ngIf="movieDetails$ | async as movie">
+    <h2 class="mb-4">{{movie.Title}}</h2>
+    <div class="row">
+        <p class="col-12 col-sm-6">
+            <img [src]="movie.Poster" class="img-fluid" alt="{{movie.Title}}" loading="lazy">
+        </p>
+        <div class="col-12 col-sm-6">
+            <h5 *ngIf="showValue(movie?.Type)">Type: <span class="badge bg-info">{{movie.Type}}</span></h5>
+            <h5 *ngIf="showValue(movie?.Year)">Year: <span class="badge bg-info">{{movie.Year}}</span></h5>
+            <h5>Rated:</h5>
+            <ul class="list-group mb-3">
+                <li class="list-group-item" *ngIf="showValue(movie?.imdbRating)"><b>IMDB: </b>{{movie.imdbRating}}</li>
+                <li class="list-group-item" *ngFor="let rating of movie.Ratings">
+                    <b>{{rating?.Source}}: </b>{{rating?.Value}}
+                </li>
+            </ul>
+            <h5 *ngIf="showValue(movie?.Genre)">Genre: <span class="badge bg-info">{{movie.Genre}}</span></h5>
+            <h5 *ngIf="showValue(movie?.Language)">Language: <span class="badge bg-info">{{movie.Language}}</span></h5>
+            <h5 *ngIf="showValue(movie?.Runtime)">Run time: <span class="badge bg-info">{{movie.Runtime}}</span></h5>
+            <h5 *ngIf="showValue(movie?.Director)">Director: <span class="badge bg-info">{{movie.Director}}</span></h5>
+            <h5 *ngIf="showValue(movie?.Actors)">Actors: <span class="badge bg-info">{{movie.Actors}}</span></h5>
+            <h5 *ngIf="showValue(movie?.Awards)">Awards: <span class="badge bg-info">{{movie.Awards}}</span></h5>
+            <h5 *ngIf="showValue(movie?.Plot)">Plot</h5>
+            <select class="form-select form-select-sm" (change)="onPlotUpdated($event)">
+                <option [value]="plot" *ngFor="let plot of plotsList">{{plot | titlecase}}</option>
+            </select>
+            <p class="card-text" [innerHTML]="movie.Plot" *ngIf="showValue(movie?.Plot)"></p>
+            <h5 *ngIf="showValue(movie?.Website)"><a href="{{movie.Website}}" target="_blank">Go to the official
+                    site</a></h5>
+            <div class="col-12 col-sm-6 mt-5 mb-5">
+                <button class="btn btn-primary" (click)="navigateBack()">Go Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

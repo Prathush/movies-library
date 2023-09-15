@@ -1,0 +1,7 @@
+<div class="container" *ngIf="showSearchBox()">
+    <div class="input-group rounded mr-2">
+        <input type="text" class="form-control rounded" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" (keyup)="updateSearchString($event)" />
+        <button class="btn btn-primary" (click)="search()">Search</button>
+    </div>
+</div>

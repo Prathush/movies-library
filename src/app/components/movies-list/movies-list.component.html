@@ -1,0 +1,25 @@
+<app-header></app-header>
+<ng-container>
+    <section *ngIf="moviesList$ | async as moviesList else moviesListSpinner">
+        <div class="container">
+            <div class="row mt-2 mb-4">
+                <app-movies-carousel [movies]="moviesList"></app-movies-carousel>
+            </div>
+        </div>
+    </section>
+    <ng-template #moviesListSpinner>
+        <app-spinner></app-spinner>
+    </ng-template>
+    <section *ngIf="noMoviesFound$ | async">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="alert alert-warning" role="alert">
+                        Apologies, No Shows found
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>
+<app-footer></app-footer>
