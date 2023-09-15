@@ -2,7 +2,7 @@
 
 # Approach
 
-This project developed using SOLID principles, DRY (Don't repeat yourself) and KISS (Keep it simple silly) design principles.
+This project was developed using SOLID principles, DRY (Don't repeat yourself) and KISS (Keep it simple silly) design principles.
 
 # Screens:
 1.Landling Page:
@@ -36,4 +36,4 @@ Statements   : 88% ( 88/100 )
 Branches     : 78.94% ( 15/19 )
 Functions    : 79.48% ( 31/39 )
 Lines        : 88.63% ( 78/88 )
-================================================================================
+ ================================================================================
